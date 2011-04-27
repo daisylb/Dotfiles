@@ -2,8 +2,8 @@
 #
 # 1. Download this file.
 # 2. Add the following to your .bash_profile:
-#    FAN=bren0094 #replace with your FAN
-#    source path/to/this/script/csem_local.sh
+#    FAN=blog1234 #replace with your FAN
+#    source /absolute/path/to/this/script/csem_local.sh
 # 3. Restart Bash for the settings to take effect.
 # 4. (optional) Set up passwordless login by running csem-passwordless-setup
 #
@@ -33,6 +33,7 @@
 # csem-print file [printer]
 #    Prints file to the given printer. Supports any files that lp supports,
 #    including PDFs. If printer is not specified, defaults to 'min'.
+# csem-passwordless-setup
 
 alias csem-ssh="ssh -l $FAN lofty.csem.flinders.edu.au"
 alias csem-x="ssh -X -l $FAN lofty.csem.flinders.edu.au"
@@ -93,6 +94,6 @@ csem-passwordless-setup(){
 		echo
 		ssh-keygen -t rsa
 	fi
-	csem-put ~/.ssh/id_rsa.pub ~/id_rsa_temp.pub
-	csem-ssh "if [ ! -d .ssh ]; then mkdir .ssh; fi; cat ~/id_rsa_temp.pub >> .ssh/authorized_keys; cat ~/id_rsa_temp.pub >> .ssh/authorized_keys2; chmod 700 .ssh; chmod 640 .ssh/authorized_keys2"
+	csem-put ~/.ssh/id_rsa.pub id_rsa_temp.pub
+	csem-ssh "mkdir -p .ssh; cat ~/id_rsa_temp.pub >> .ssh/authorized_keys; cat ~/id_rsa_temp.pub >> .ssh/authorized_keys2; chmod 700 .ssh; chmod 640 .ssh/authorized_keys2"
 }
