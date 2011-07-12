@@ -32,7 +32,8 @@
 #    runs them through the `try` tool for the given task.
 # csem-print file [printer]
 #    Prints file to the given printer. Supports any files that lp supports,
-#    including PDFs. If printer is not specified, defaults to 'min'.
+#    including PDFs. If printer is not specified, defaults to 'min', since it's
+#    the quickest for me to get to from Physical Sciences.
 # csem-passwordless-setup
 
 alias csem-ssh="ssh -l $FAN lofty.csem.flinders.edu.au"
@@ -83,14 +84,12 @@ csem-print(){
 	fi
 }
 csem-passwordless-setup(){
-	# this is untested :O
 	if [ -f ~/.ssh/id_rsa.pub ]
 	then
 		echo "RSA key found."
 	else
-		echo "You don't appear to have a RSA key."
-		echo "I'm about to run a program that will generate one,"
-		echo "just use the default settings for everything."
+		echo "You don't appear to have a RSA key at ~/.ssh/id_rsa.pub."
+		echo "I'm about to run a program that will generate one."
 		echo
 		ssh-keygen -t rsa
 	fi
