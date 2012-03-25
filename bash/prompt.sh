@@ -84,4 +84,15 @@ else
 	UserColorSeq="${BIGreen}"
 fi
 
-PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${ICyan}\w \n\[${BIGreen}\]> \[${CReset}\]"
+_NORMAL_PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${ICyan}\w \n\[${BIGreen}\]> \[${CReset}\]"
+
+_SPECIAL_PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${IRed}SPECIAL ${ICyan}\w \n\[${BIGreen}\]> \[${CReset}\]"
+
+set-normal-ps1(){
+	PS1=$_NORMAL_PS1
+}
+set-special-ps1(){
+	PS1=`echo $_SPECIAL_PS1 | sed s/SPECIAL/$1/g`
+}
+
+set-normal-ps1
