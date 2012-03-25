@@ -95,4 +95,8 @@ set-special-ps1(){
 	PS1=`echo $_SPECIAL_PS1 | sed s/SPECIAL/$1/g`
 }
 
+# Usage example: in virtualenvwrapper's postactivate:
+# set-special-ps1 "virtualenv:`echo $VIRTUAL_ENV | sed "s|$WORKON_HOME/||"`"
+# virtualenv's deactivate should reset your propmpt by itself.
+
 set-normal-ps1
