@@ -84,9 +84,9 @@ else
 	UserColorSeq="${BIGreen}"
 fi
 
-_NORMAL_PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${ICyan}\w \n\[${BIGreen}\]> \[${CReset}\]"
+_NORMAL_PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${ICyan}\w \n\[${BIGreen}\]\$ \[${CReset}\]"
 
-_SPECIAL_PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${IRed}SPECIAL ${ICyan}\w \n\[${BIGreen}\]> \[${CReset}\]"
+_SPECIAL_PS1="\n${UserColorSeq}${CurrentUser} @ ${CurrentMachine}${CReset} ${IRed}SPECIAL ${ICyan}\w \n\[${BIGreen}\]\$ \[${CReset}\]"
 
 set-normal-ps1(){
 	PS1=$_NORMAL_PS1
