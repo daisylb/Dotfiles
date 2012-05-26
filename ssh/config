@@ -1,0 +1,15 @@
+Host wf
+	Hostname adambrenecki.webfactional.com
+	User adambrenecki
+
+Host sbtc
+	Hostname 108.59.11.108
+	User stbarnabas
+
+Host diocese
+	Hostname cp04.digitalpacific.com.au
+	User anglica1
+
+Host csem
+	Hostname lofty.csem.flinders.edu.au
+	User bren0094
