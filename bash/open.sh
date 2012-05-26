@@ -15,7 +15,11 @@ g(){
 }
 
 sp(){
-	g sublime_text --project ~/.sublime_projects/$1.sublime-project
+	g sublime_text --project $1
+}
+
+sp-new(){
+	echo "{\"folders\":[{\"path\":\"`pwd`\"}]}" > $1.sublime-project
 }
 
 GITG_PATH=`which gitg`
