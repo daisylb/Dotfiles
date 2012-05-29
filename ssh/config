@@ -1,3 +1,6 @@
+IdentityFile ~/.ssh/id_rsa
+IdentityFile ~/.ssh/work_rsa
+
 Host wf
 	Hostname adambrenecki.webfactional.com
 	User adambrenecki
