@@ -75,28 +75,32 @@ On_ICyan='\e[0;106m'    # Cyan
 
 #The prompt itself
 
-CurrentUser=`id -un | sed -e 's/^./\U&\E/g'`
-CurrentMachine=`hostname | sed -e 's/^./\U&\E/g'`
+PS1_SPECIAL=()
+
+git_status() {
+	branch=`git name-rev HEAD 2>/dev/null | awk "{ print \\$2 }"`
+	if [ -z $branch ]; then return; fi
+	status=`git status --porcelain | sed 's/^ *\(.\).*/\1/g' | tr -d '\n'`
+	echo "git: $branch $status"
+	echo
+}
+
+build-ps1() {
+	#working dir line
+	printf "${ICyan}$(pwd|sed s,$HOME,~,)\n"
 	
-if [ "$CurrentUser" == "Root" ]; then
-	UserColorSeq="${On_IRed}${BIWhite}"
-else
-	UserColorSeq="${BIGreen}"
-fi
-
-_NORMAL_PS1="\n${ICyan}\w \n\[${BIGreen}\]\$ \[${CReset}\]"
-
-_SPECIAL_PS1="\n${IRed}SPECIAL ${ICyan}\w \n\[${BIGreen}\]\$ \[${CReset}\]"
-
-set-normal-ps1(){
-	PS1=$_NORMAL_PS1
-}
-set-special-ps1(){
-	PS1=`echo $_SPECIAL_PS1 | sed s/SPECIAL/$1/g`
+	# git line
+	branch=`git name-rev HEAD 2>/dev/null | awk "{ print \\$2 }"`
+	if [ ! -z "$branch" ]; then
+		status=`git status --porcelain | sed 's/^ *\(.\).*/\1/g' | tr -d '\n'`
+		if [ -z "$status" ]; then status="clean"; fi
+		printf "${Purple}git: $branch $status\n"
+	fi
+	
+	#prompt line
+	printf "${BIGreen}$ ${CReset}"
 }
 
-# Usage example: in virtualenvwrapper's postactivate:
-# set-special-ps1 "virtualenv:`echo $VIRTUAL_ENV | sed "s|$WORKON_HOME/||"`"
-# virtualenv's deactivate should reset your propmpt by itself.
+# export PS1="\n${Purple}\$(git_status)\n${ICyan}\w\[${BIGreen}\]$ \[${CReset}\]"
 
-set-normal-ps1
+export PS1="\n\$(build-ps1)"
