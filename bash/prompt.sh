@@ -92,9 +92,13 @@ build-ps1() {
 	# git line
 	branch=`git name-rev HEAD 2>/dev/null | awk "{ print \\$2 }"`
 	if [ ! -z "$branch" ]; then
-		status=`git status --porcelain | sed 's/^ *\(.\).*/\1/g' | tr -d '\n'`
-		if [ -z "$status" ]; then status="clean"; fi
-		printf "${Purple}git: $branch $status\n"
+		staged=`git status --porcelain | sed -E 's/^([^?[:space:]])?.*/\1/g' | tr -d '\n'`
+		unstaged=`git status --porcelain | sed -E 's/^.([^[:space:]])?.*/\1/g' | tr -d '\n'`
+		if [[ -z "$staged" && -z "$unstaged" ]]; then
+			printf "${Green}git: $branch clean\n"
+		else
+			printf "${Red}git: $branch $staged:$unstaged\n"
+		fi
 	fi
 	
 	#prompt line
