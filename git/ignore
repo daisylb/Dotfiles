@@ -1,0 +1,12 @@
+# Mac OS
+*~
+._*
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Sublime Text 2
+*.sublime-project
+*.sublime-workspace
+.codeintel/*
+.ropeproject/*
