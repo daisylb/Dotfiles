@@ -13,7 +13,7 @@ joinlock(){
 lock(){
 	_lock_$1
 	cd ~
-	fusermount -u ~/$1
+	diskutil unmount ~/$1
 	retcode=$?
 	if [ $retcode == 0 ] ; then
 		rmdir ~/$1
