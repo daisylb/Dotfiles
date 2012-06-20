@@ -45,3 +45,7 @@ My Bash prompt.
 
 Provides tools for manipulating paths; useful for toolsets with
 obnoxious names like the Android SDK.
+
+## Disclaimer
+
+No guarantee is provided that anything in this repository will work, or even that it will not break other things or delete data. Hopefully it won't, but if anything does break, you get to keep both pieces.
