@@ -95,16 +95,13 @@ build-ps1() {
 		staged=`git status --porcelain | sed -E 's/^([^?[:space:]])?.*/\1/g' | tr -d '\n'`
 		unstaged=`git status --porcelain | sed -E 's/^.([^[:space:]])?.*/\1/g' | tr -d '\n'`
 		if [[ -z "$staged" && -z "$unstaged" ]]; then
-			printf "${Green}git: $branch clean\n"
+			printf "${Purple}git: $branch ${Green}clean\n"
 		else
-			printf "${Red}git: $branch $staged:$unstaged\n"
+			printf "${Purple}git: $branch ${IRed}$staged:$unstaged\n"
 		fi
 	fi
-	
-	#prompt line
-	printf "${BIGreen}$ ${CReset}"
 }
 
 # export PS1="\n${Purple}\$(git_status)\n${ICyan}\w\[${BIGreen}\]$ \[${CReset}\]"
 
-export PS1="\n\$(build-ps1)"
+export PS1="\n\$(build-ps1)\n\[${BIGreen}\]$ \[${CReset}\]"
