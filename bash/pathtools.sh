@@ -12,6 +12,10 @@ rmpath(){
 do-path-lookup(){
 	case "$1" in
 		"android")
-			echo "/opt/android/tools:/opt/android/platform-tools" ;;
+			echo "/usr/local/Cellar/android-sdk/r18/tools:/usr/local/Cellar/android-sdk/r18/platform-tools" ;;
+		"postgres")
+			echo "/Applications/Postgres.app/Contents/MacOS/bin" ;;
+		"mamp")
+			echo "/Applications/MAMP/Library/bin" ;;
 	esac
 }
