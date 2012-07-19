@@ -34,3 +34,7 @@ These functions to be macros for convenience before I switched to using `.ssh/co
 * `ssh csem` - Log in to CSEM and get their standard shell (zsh?)
 * `scp [-r] <myfile> csem:[<directory>]` - Copy `myfile` to `directory` on the CSEM systems, or your home directory if not specified (make sure the `:` stays there). Use `-r` to copy entire directories.
 * `scp [-r] csem:<myfile> <path-to-copy-to>` - Copy `myfile` on the CSEM systems to `path-to-copy-to` (to copy to your current working directory, use `.`).
+
+## Disclaimer
+
+No guarantee is provided that this tool will work, or even that it will not break other things or delete data. It shouldn't, but if anything does break, you get to keep both pieces.
