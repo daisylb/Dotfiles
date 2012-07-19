@@ -1,6 +1,3 @@
-IdentityFile ~/.ssh/id_rsa
-IdentityFile ~/.ssh/work_rsa
-
 Host wf
 	Hostname adambrenecki.webfactional.com
 	User adambrenecki
@@ -9,10 +6,19 @@ Host sbtc
 	Hostname 108.59.11.108
 	User stbarnabas
 
+Host sbtc-git
+	Hostname sbtc.org.au
+	User git
+	IdentityFile ~/.ssh/sbtc_git_rsa
+
 Host diocese
-	Hostname cp04.digitalpacific.com.au
+	Hostname 203.123.59.210
 	User anglica1
 
 Host csem
 	Hostname lofty.csem.flinders.edu.au
 	User bren0094
+
+Host *
+	IdentityFile ~/.ssh/id_rsa
+	IdentityFile ~/.ssh/work_rsa

@@ -5,6 +5,11 @@
 .Spotlight-V100
 .Trashes
 
+# Python
+*.pyc
+*.pyo
+*.egg-info/*
+
 # Sublime Text 2
 *.sublime-project
 *.sublime-workspace

@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+for service in (networksetup -listallnetworkservices)
+	networksetup -setwebproxystate $service off
+	networksetup -setsecurewebproxystate $service off
+end

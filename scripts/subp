@@ -1,0 +1,46 @@
+#!/usr/bin/env fish
+
+set levels
+
+set blank_project '{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	]
+}'
+
+while [ (pwd) != "/" ]; and [ (pwd) != $HOME ]
+	#if the project exists, open it
+	if [ -f (basename (pwd)).sublime-project ]
+		subl (basename (pwd)).sublime-project
+		exit 0
+	end
+
+	# otherwise, add the level to our list
+	set levels $levels (pwd)
+
+	cd ..
+end
+
+echo "No Sublime Text project files found."
+echo "Which directory do you want to make one in?"
+echo
+
+for i in (seq (count $levels))
+	echo $i (basename $levels[$i])
+end
+
+echo
+
+function prompt
+	echo "Type a directory number, or 0 to exit: "
+end
+
+read -p prompt n
+
+if [ $n != 0 ]
+	echo $blank_project > $levels[$n]/(basename $levels[$n]).sublime-project
+	subl $levels[$n]/(basename $levels[$n]).sublime-project
+end
