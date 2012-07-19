@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!-- Fri, 24 Feb 2006 Generated from KCHR: "DVORAK - QWERTY CMD" -->
-<!--Last edited by Ukelele version 2.2.1 on 2012-07-19 at 13:43 (ACST)-->
+<!--Last edited by Ukelele version 2.2.1 on 2012-07-19 at 15:11 (ACST)-->
 <keyboard group="0" id="16301" name="DVORAK - QWERTY CMD" maxout="1">
     <layouts>
         <layout first="0" last="0" modifiers="commonModifiers" mapSet="ANSI"/>
@@ -44,6 +44,12 @@
         </keyMapSelect>
         <keyMapSelect mapIndex="9">
             <modifier keys="anyShift caps? anyOption command"/>
+        </keyMapSelect>
+        <keyMapSelect mapIndex="10">
+            <modifier keys="anyShift? caps anyOption? command? anyControl?"/>
+        </keyMapSelect>
+        <keyMapSelect mapIndex="11">
+            <modifier keys="anyShift caps anyOption? command? anyControl?"/>
         </keyMapSelect>
     </modifierMap>
     <keyMapSet id="ANSI">
@@ -1227,6 +1233,105 @@
             <key code="125" output="&#x001F;"/>
             <key code="126" output="&#x001E;"/>
         </keyMap>
+        <keyMap index="10">
+            <key code="0" output=""/>
+            <key code="2" output="&#x003C;"/>
+            <key code="3" output="("/>
+            <key code="4" output="="/>
+            <key code="14" output="["/>
+            <key code="15" output="{"/>
+            <key code="31" output="/"/>
+            <key code="32" output="}"/>
+            <key code="34" output="]"/>
+            <key code="35" output="*"/>
+            <key code="36" output="&#x000D;"/>
+            <key code="37" output=":"/>
+            <key code="38" output=")"/>
+            <key code="40" output="&#x003E;"/>
+            <key code="41" output="#"/>
+            <key code="48" output="&#x0009;"/>
+            <key code="51" output="&#x0008;"/>
+            <key code="53" output="&#x001B;"/>
+            <key code="64" output="&#x0010;"/>
+            <key code="66" output="&#x001D;"/>
+            <key code="70" output="&#x001C;"/>
+            <key code="71" output="&#x001B;"/>
+            <key code="72" output="&#x001F;"/>
+            <key code="76" output="&#x0003;"/>
+            <key code="77" output="&#x001E;"/>
+            <key code="79" output="&#x0010;"/>
+            <key code="80" output="&#x0010;"/>
+            <key code="96" output="&#x0010;"/>
+            <key code="97" output="&#x0010;"/>
+            <key code="98" output="&#x0010;"/>
+            <key code="99" output="&#x0010;"/>
+            <key code="100" output="&#x0010;"/>
+            <key code="101" output="&#x0010;"/>
+            <key code="103" output="&#x0010;"/>
+            <key code="105" output="&#x0010;"/>
+            <key code="106" output="&#x0010;"/>
+            <key code="107" output="&#x0010;"/>
+            <key code="109" output="&#x0010;"/>
+            <key code="111" output="&#x0010;"/>
+            <key code="113" output="&#x0010;"/>
+            <key code="114" output="&#x0005;"/>
+            <key code="115" output="&#x0001;"/>
+            <key code="116" output="&#x000B;"/>
+            <key code="117" output="&#x007F;"/>
+            <key code="118" output="&#x0010;"/>
+            <key code="119" output="&#x0004;"/>
+            <key code="120" output="&#x0010;"/>
+            <key code="121" output="&#x000C;"/>
+            <key code="122" output="&#x0010;"/>
+            <key code="123" output="&#x001C;"/>
+            <key code="124" output="&#x001D;"/>
+            <key code="125" output="&#x001F;"/>
+            <key code="126" output="&#x001E;"/>
+        </keyMap>
+        <keyMap index="11">
+            <key code="0" output=""/>
+            <key code="4" output="+"/>
+            <key code="35" output="&#x0026;"/>
+            <key code="36" output="&#x000D;"/>
+            <key code="48" output="&#x0009;"/>
+            <key code="51" output="&#x0008;"/>
+            <key code="53" output="&#x001B;"/>
+            <key code="64" output="&#x0010;"/>
+            <key code="66" output="&#x001D;"/>
+            <key code="70" output="&#x001C;"/>
+            <key code="71" output="&#x001B;"/>
+            <key code="72" output="&#x001F;"/>
+            <key code="76" output="&#x0003;"/>
+            <key code="77" output="&#x001E;"/>
+            <key code="79" output="&#x0010;"/>
+            <key code="80" output="&#x0010;"/>
+            <key code="96" output="&#x0010;"/>
+            <key code="97" output="&#x0010;"/>
+            <key code="98" output="&#x0010;"/>
+            <key code="99" output="&#x0010;"/>
+            <key code="100" output="&#x0010;"/>
+            <key code="101" output="&#x0010;"/>
+            <key code="103" output="&#x0010;"/>
+            <key code="105" output="&#x0010;"/>
+            <key code="106" output="&#x0010;"/>
+            <key code="107" output="&#x0010;"/>
+            <key code="109" output="&#x0010;"/>
+            <key code="111" output="&#x0010;"/>
+            <key code="113" output="&#x0010;"/>
+            <key code="114" output="&#x0005;"/>
+            <key code="115" output="&#x0001;"/>
+            <key code="116" output="&#x000B;"/>
+            <key code="117" output="&#x007F;"/>
+            <key code="118" output="&#x0010;"/>
+            <key code="119" output="&#x0004;"/>
+            <key code="120" output="&#x0010;"/>
+            <key code="121" output="&#x000C;"/>
+            <key code="122" output="&#x0010;"/>
+            <key code="123" output="&#x001C;"/>
+            <key code="124" output="&#x001D;"/>
+            <key code="125" output="&#x001F;"/>
+            <key code="126" output="&#x001E;"/>
+        </keyMap>
     </keyMapSet>
     <actions>
         <action id=" ">
@@ -1236,18 +1341,6 @@
             <when state="s3" output="ˆ"/>
             <when state="s4" output="˜"/>
             <when state="s5" output="`"/>
-        </action>
-        <action id="¨">
-            <when state="none" next="s2"/>
-        </action>
-        <action id="´">
-            <when state="none" next="s1"/>
-        </action>
-        <action id="ˆ">
-            <when state="none" next="s3"/>
-        </action>
-        <action id="˜">
-            <when state="none" next="s4"/>
         </action>
         <action id="A">
             <when state="none" output="A"/>
@@ -1341,6 +1434,18 @@
         <action id="y">
             <when state="none" output="y"/>
             <when state="s2" output="ÿ"/>
+        </action>
+        <action id="¨">
+            <when state="none" next="s2"/>
+        </action>
+        <action id="´">
+            <when state="none" next="s1"/>
+        </action>
+        <action id="ˆ">
+            <when state="none" next="s3"/>
+        </action>
+        <action id="˜">
+            <when state="none" next="s4"/>
         </action>
     </actions>
     <terminators>
