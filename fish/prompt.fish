@@ -14,10 +14,10 @@ function fish_prompt --description 'Write out the prompt'
 
 	# Blank line
 	echo
-	
+
 	# Path
 	echo -s (set_color -o cyan) (prompt_pwd)
-	
+
 	# Git line
 	set __prompt_git_branch (git name-rev HEAD ^/dev/null | awk "{ print \$2 }")
 	if [ "$__prompt_git_branch" != '' ]
@@ -30,7 +30,12 @@ function fish_prompt --description 'Write out the prompt'
 			echo -s (set_color green) ' ' 'clean'
 		end
 	end
-	
+
+	# Virtualenv line
+	if set -q VIRTUAL_ENV
+		echo -s (set_color yellow) "virtualenv: " (basename "$VIRTUAL_ENV")
+	end
+
 	# Prompt
 	switch $USER
 		case root
