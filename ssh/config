@@ -19,6 +19,10 @@ Host csem
 	Hostname lofty.csem.flinders.edu.au
 	User bren0094
 
+Host cis
+	Hostname cis-lab.ml.unisa.edu.au
+	User breal001
+
 Host *
 	IdentityFile ~/.ssh/id_rsa
 	IdentityFile ~/.ssh/work_rsa
