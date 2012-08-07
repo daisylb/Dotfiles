@@ -11,10 +11,35 @@ set blank_project '{
 	]
 }'
 
+set projfile $HOME/.config/subp/projects
+
+# setup
+mkdir -p (dirname $projfile)
+if not [ -f $projfile ]
+	touch $projfile
+end
+
+# if run with an argument, launch that project
+if [ (count $argv) -ge 1 ]
+	set projname $argv[1]
+	cat $projfile | while read dir
+		echo a
+		set proj $dir/(basename $dir).sublime-project
+		echo b
+		if [ (basename $dir) = $projname ]
+			echo "Opening $proj"
+			subl $proj
+		end
+	end
+	exit 1
+end
+
+# find a sublime project in the wd or its parents
 while [ (pwd) != "/" ]; and [ (pwd) != $HOME ]
 	#if the project exists, open it
 	if [ -f (basename (pwd)).sublime-project ]
 		subl (basename (pwd)).sublime-project
+		pwd >> $projfile
 		exit 0
 	end
 
@@ -24,6 +49,7 @@ while [ (pwd) != "/" ]; and [ (pwd) != $HOME ]
 	cd ..
 end
 
+# create one
 echo "No Sublime Text project files found."
 echo "Which directory do you want to make one in?"
 echo
