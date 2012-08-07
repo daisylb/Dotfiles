@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
 <!-- Fri, 24 Feb 2006 Generated from KCHR: "DVORAK - QWERTY CMD" -->
-<!--Last edited by Ukelele version 2.2.1 on 2012-07-24 at 13:20 (ACST)-->
+<!--Last edited by Ukelele version 2.2.1 on 2012-08-07 at 14:45 (ACST)-->
 <keyboard group="0" id="16301" name="Dvorak + Qwerty Cmd + Programming Symbols" maxout="1">
     <layouts>
         <layout first="0" last="0" modifiers="commonModifiers" mapSet="ANSI"/>
@@ -403,19 +403,19 @@
         </keyMap>
         <keyMap index="3">
             <key code="0" output=""/>
-            <key code="1" output=""/>
+            <key code="1" output="\"/>
             <key code="2" output="&#x003C;"/>
             <key code="3" output="("/>
             <key code="4" output="="/>
             <key code="5" output="+"/>
             <key code="6" output="…"/>
             <key code="7" output=""/>
-            <key code="8" output="\"/>
-            <key code="9" output="$"/>
+            <key code="8" output=""/>
+            <key code="9" output=""/>
             <key code="10" output="§"/>
             <key code="11" output=""/>
             <key code="12" output=""/>
-            <key code="13" output=""/>
+            <key code="13" output="$"/>
             <key code="14" output="["/>
             <key code="15" output="{"/>
             <key code="16" output=""/>
