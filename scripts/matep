@@ -1,0 +1,64 @@
+#!/usr/bin/env fish
+
+set levels
+
+set blank_project 'projectDirectory = "$CWD"
+'
+
+set projfile $HOME/.config/matep/projects
+
+# setup
+mkdir -p (dirname $projfile)
+if not [ -f $projfile ]
+	touch $projfile
+end
+
+# if run with an argument, launch that project
+if [ (count $argv) -ge 1 ]
+	set projname $argv[1]
+	cat $projfile | while read dir
+		set proj $dir/.tm_properties
+		if [ -f proj ]
+			echo "Opening $dir"
+			mate $dir
+		end
+	end
+	exit 1
+end
+
+# find a tm project in the wd or its parents
+while begin; [ (pwd) != "/" ]; and [ (pwd) != $HOME ]; end
+	#if the project exists, open it
+	if [ -f .tm_properties ]
+		mate .
+		pwd >> $projfile
+		exit 0
+	end
+
+	# otherwise, add the level to our list
+	set levels $levels (pwd)
+
+	cd ..
+end
+
+# create one
+echo "No TextMate project files found."
+echo "Which directory do you want to make one in?"
+echo
+
+for i in (seq (count $levels))
+	echo $i (basename $levels[$i])
+end
+
+echo
+
+function prompt
+	echo "Type a directory number, or 0 to exit: "
+end
+
+read -p prompt n
+
+if [ $n != 0 ]
+	echo $blank_project > $levels[$n]/.tm_properties
+	mate $levels[$n]
+end
