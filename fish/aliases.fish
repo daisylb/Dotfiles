@@ -2,9 +2,43 @@
 
 #function subp
 
-alias tcdeploy 'curl -u tomcat:tomcat "http://localhost:8080/manager/text/deploy?path=/"(basename $PWD)"&war=file:$PWD"'
-alias tcundeploy 'curl -u tomcat:tomcat "http://localhost:8080/manager/text/deploy?path=/"(basename $PWD)'
-alias tcredeploy 'tcundeploy; tcdeploy'
+alias tcdeploy 'curl -u tomcat:tomcat "http://localhost:8080/manager/text/deploy?path=/"(basename $PWD)"&war=file:"(echo $PWD | tr " " "%20")'
+#alias tcundeploy 'curl -u tomcat:tomcat "http://localhost:8080/manager/text/deploy?path=/"(basename $PWD)'
+#alias tcredeploy 'tcundeploy; tcdeploy'
+
+function tcdeploydir
+	set url "http://localhost:8080/manager/text/deploy?path=/"(basename $PWD)"&war=file:"(echo $PWD | sed "s| |\%20|g")
+	echo $url
+	curl -u tomcat:tomcat $url
+end
+
+function tcundeploy
+	set url "http://localhost:8080/manager/text/undeploy?path=/"(basename $PWD)
+	echo $url
+	curl -u tomcat:tomcat $url
+end
+
+function tcredeploy
+	tcundeploy
+	tcdeploy
+end
+
+function tclink
+	ln -s (pwd) /usr/local/Cellar/tomcat/7.0.30/libexec/webapps/(basename (pwd))
+end
+
+function tcunlink
+	set link /usr/local/Cellar/tomcat/7.0.30/libexec/webapps/(basename (pwd))
+	if test -L $link
+		unlink $link
+	end
+end
+
+function tcreload
+	set url "http://localhost:8080/manager/text/reload?path=/"(basename $PWD)
+	echo $url
+	curl -u tomcat:tomcat $url
+end
 
 function ssh-copy-id
 	switch (count $argv)
@@ -19,7 +53,8 @@ function ssh-copy-id
 			echo 'Usage: ssh-copy-id <server> [<pubkeyfile>]'
 			return 1
 	end
-	ssh $server "bash -c 'mkdir -p .ssh; key=\""(cat $keyfile)"\"; echo \$key >> .ssh/authorized_keys; echo \$key >> .ssh/authorized_keys2; chmod 0600 .ssh/authorized_keys .ssh/authorized_keys2'"
+	set cmd "bash -c 'mkdir -p .ssh; key=\""(cat $keyfile)"\"; echo \$key >> .ssh/authorized_keys; echo \$key >> .ssh/authorized_keys2; chmod 700 .ssh/; chmod 600 .ssh/authorized_keys .ssh/authorized_keys2'"
+	ssh $server $cmd 
 end
 
 function mde
@@ -27,4 +62,10 @@ function mde
 	open -a Marked $argv[1]
 end
 
+alias serve 'twistd -n web --path .'
+
 alias gitg 'open -a SourceTree .'
+
+function fixpb --description "Fix pasteboard contents from Office:mac and other sources"
+	pbpaste | tr '\r\n' '\n' | tr '\r' '\n' | tr '•' '-' | tr '“' '"' | tr '”' '"' | tr '​' '\t' | pbcopy
+end

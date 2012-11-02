@@ -1,6 +1,10 @@
 Host wf
-	Hostname adambrenecki.webfactional.com
+	Hostname web340.webfaction.com
 	User adambrenecki
+
+Host wf-mum
+	Hostname jobrenecki.webfactional.com
+	User jobrenecki
 
 Host sbtc
 	Hostname 108.59.11.108
@@ -11,9 +15,13 @@ Host sbtc-git
 	User git
 	IdentityFile ~/.ssh/sbtc_git_rsa
 
-Host diocese
+Host diocese-old
 	Hostname 203.123.59.210
 	User anglica1
+
+Host diocese
+	Hostname web339.webfaction.com
+	User anglicanadl
 
 Host csem
 	Hostname lofty.csem.flinders.edu.au

@@ -3,7 +3,8 @@
 	email = adam@brenecki.id.au
 [core]
 	excludesfile = /Users/Adam/.gitignore_global
-	editor = subl -w
+	editor = choc -w
+	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -12,3 +13,5 @@
 	trustExitCode = true
 [mergetool]
 	keepBackup = true
+[credential]
+	helper = osxkeychain

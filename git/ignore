@@ -15,3 +15,8 @@
 *.sublime-workspace
 .codeintel/*
 .ropeproject/*
+
+# TextMate
+
+.tm_properties
+.vfenv
