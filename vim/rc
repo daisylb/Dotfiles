@@ -1,3 +1,5 @@
+call pathogen#infect()
+
 " Remap navigation keys to their Vim equivalents
 noremap t gj
 noremap n gk
@@ -9,6 +11,8 @@ noremap S $
 " make keys easier to reach
 inoremap hh <Esc>
 noremap ; :
+" make nerdtree behave
+let NERDTreeMapOpenInTab='T'
 
 if has("gui_running")
 	" gui settings
