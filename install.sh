@@ -60,3 +60,15 @@ if test ! -f ~/Library/Fonts/SourceCodePro-Regular.otf; then
 	cd ..
 	rm -rf temp
 fi
+
+# install alfred
+if test ! -d /Applications/Alfred.app/; then
+	mkdir temp
+	cd temp
+	curl -o alfred.zip http://cachefly.alfredapp.com/alfred_1.3.2_265.zip
+	unzip alfred.zip
+	mv Alfred.app /Applications/
+	cd ..
+	rm -rf temp
+	open /Applications/Alfred.app
+fi
