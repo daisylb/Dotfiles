@@ -64,8 +64,20 @@ end
 
 alias serve 'twistd -n web --path .'
 
-alias gitg 'open -a SourceTree .'
+function gitg
+	set toplevel (git rev-parse --show-toplevel)
+	if test $status = 0
+		open -a SourceTree $toplevel
+	else
+		echo "Not a Git repository."
+	end
+end
 
 function fixpb --description "Fix pasteboard contents from Office:mac and other sources"
 	pbpaste | tr '\r\n' '\n' | tr '\r' '\n' | tr '•' '-' | tr '“' '"' | tr '”' '"' | tr '​' '\t' | pbcopy
+end
+
+function dj-superuser-details
+	echo "from django.contrib.auth.models import User; u = User.objects.all()[0]; print 'Username:', u.username; u.set_password('password'); u.save()" | python manage.py shell
+	echo "Password: password"
 end
