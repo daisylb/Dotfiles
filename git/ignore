@@ -8,7 +8,9 @@
 # Python
 *.pyc
 *.pyo
+*.egg
 *.egg-info/*
+dist/*
 
 # Sublime Text 2
 *.sublime-project
@@ -17,6 +19,9 @@
 .ropeproject/*
 
 # TextMate
-
 .tm_properties
 .vfenv
+
+# IntelliJ IDEA
+.idea/*
+*.iml
