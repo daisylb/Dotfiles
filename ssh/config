@@ -34,3 +34,4 @@ Host cis
 Host *
 	IdentityFile ~/.ssh/id_rsa
 	IdentityFile ~/.ssh/work_rsa
+	RemoteForward 32123 localhost:32123
