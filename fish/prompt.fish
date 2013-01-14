@@ -11,10 +11,9 @@ function prompt_pwd --description 'Print the current working directory, shortene
 end
 
 function fish_prompt --description 'Write out the prompt'
-
-	# Blank line
-	echo
-
+	# Empty line
+	echo " "
+	
 	# Path
 	echo -s (set_color -o cyan) (prompt_pwd)
 
