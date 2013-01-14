@@ -39,12 +39,24 @@ if test ! -f /usr/local/bin/fish; then
 fi
 # todo: set default shell
 
-# install firefox, chocolat, steam...
+# install chocolat
+if test ! -d /Applications/Chocolat.app/; then
+	mkdir temp
+	cd temp
+	curl -o choc.zip http://files.fileability.net/Chocolat_1.4.3.zip
+	unzip choc.zip
+	mv Chocolat.app /Applications/
+	cd ..
+	rm -rf temp
+fi
 
-mkdir temp
-cd temp
-curl -o choc.zip http://files.fileability.net/Chocolat_1.4.3.zip
-unzip choc.zip
-mv Chocolat.app /Applications/
-cd ..
-rm -rf temp
+# install source code pro
+if test ! -f ~/Library/Fonts/SourceCodePro-Regular.otf; then
+	mkdir temp
+	cd temp
+	curl -o scp.zip http://cloud.github.com/downloads/adobe/source-code-pro/SourceCodePro_FontsOnly-1.013.zip
+	unzip scp.zip
+	mv SourceCodePro_FontsOnly-1.013/OTF/*.otf ~/Library/Fonts/
+	cd ..
+	rm -rf temp
+fi
