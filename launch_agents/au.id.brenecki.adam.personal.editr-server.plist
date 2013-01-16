@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- http://nb.nathanamy.org/2012/07/schedule-jobs-using-launchd/ -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>au.id.brenecki.adam.personal.editr-server</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/usr/local/bin/editr-server</string>
+		<string>--editor</string>
+		<string>mate -w</string>
+	</array>
+	<key>KeepAlive</key>
+	<true/>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>

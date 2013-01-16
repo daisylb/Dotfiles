@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- http://nb.nathanamy.org/2012/07/schedule-jobs-using-launchd/ -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>au.id.brenecki.adam.giki.work</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/Adam/.virtualenvs/personal.giki/bin/giki</string>
+		<string>-p</string>
+		<string>8095</string>
+		<string>-P</string>
+		<string>/Users/Adam/work/wiki.git</string>
+		<string>Adam Brenecki &lt;abrenecki@adelaide.anglican.com.au&gt;</string>
+	</array>
+	<key>KeepAlive</key>
+	<true/>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
