@@ -9,7 +9,7 @@
 	<array>
 		<string>/usr/local/bin/editr-server</string>
 		<string>--editor</string>
-		<string>mate -w</string>
+		<string>/Users/adam/personal_projects/dotfiles/scripts/mvim -f</string>
 	</array>
 	<key>KeepAlive</key>
 	<true/>
