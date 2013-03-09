@@ -15,6 +15,14 @@ Host sbtc-git
 	User git
 	IdentityFile ~/.ssh/sbtc_git_rsa
 
+Host sbtc-xen1
+	Hostname xen1.lan.sbtc.org.au
+	User root
+
+Host sbtc-auth
+	Hostname auth.lan.sbtc.org.au
+	User abrenecki
+
 Host diocese-old
 	Hostname 203.123.59.210
 	User anglica1
