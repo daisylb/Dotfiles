@@ -53,7 +53,7 @@ function ssh-copy-id
 			echo 'Usage: ssh-copy-id <server> [<pubkeyfile>]'
 			return 1
 	end
-	set cmd "bash -c 'mkdir -p .ssh; key=\""(cat $keyfile)"\"; echo \$key >> .ssh/authorized_keys; echo \$key >> .ssh/authorized_keys2; chmod 700 .ssh/; chmod 600 .ssh/authorized_keys .ssh/authorized_keys2'"
+	set cmd "sh -c 'mkdir -p .ssh; key=\""(cat $keyfile)"\"; echo \$key >> .ssh/authorized_keys; echo \$key >> .ssh/authorized_keys2; chmod 700 .ssh/; chmod 600 .ssh/authorized_keys .ssh/authorized_keys2'"
 	ssh $server $cmd 
 end
 
