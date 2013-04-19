@@ -9,11 +9,16 @@
 	<array>
 		<string>/usr/local/bin/editr-server</string>
 		<string>--editor</string>
-		<string>/Users/adam/personal_projects/dotfiles/scripts/mvim -f</string>
+		<string>/usr/local/bin/mvim -f</string>
 	</array>
 	<key>KeepAlive</key>
 	<true/>
 	<key>RunAtLoad</key>
 	<true/>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/usr/X11R6/bin</string>
+	</dict>
 </dict>
 </plist>
