@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>au.id.brenecki.adam.personal.efirstaid</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>open</string>
+		<string>http://e-firstaid.stjohn.org.au/</string>
+	</array>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>9</integer>
+		<key>Weekday</key>
+		<integer>6</integer>
+	</dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/sbin:/usr/X11R6/bin</string>
+	</dict>
+</dict>
+</plist>
