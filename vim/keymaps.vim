@@ -4,8 +4,12 @@ noremap n gk
 noremap T j
 noremap N k
 noremap s l
-noremap H 0
-noremap S $
+noremap H _
+noremap T <C-d>
+noremap N <C-u>
+noremap S g_
+vnoremap S g_
+vnoremap l S
 
 " make keys easier to reach
 inoremap hh <Esc>
@@ -28,7 +32,17 @@ let NERDTreeMapOpenInTab='<leader>K'
 
 " Leader key stuff
 let mapleader = ","
-" TODO: move between splits with Ctrl+h/t/n/s
+" Move between splits with either <leader>H/T/N/S
+" or <A-h/t/n/s>
+nmap <silent> <leader>H :wincmd h<CR>
+nmap <silent> <leader>T :wincmd j<CR>
+nmap <silent> <leader>N :wincmd k<CR>
+nmap <silent> <leader>S :wincmd l<CR>
+" We have to put the actual chars produced here due to a MacVim quirk
+nmap <silent> ˙ :wincmd h<CR>
+nmap <silent> † :wincmd j<CR>
+nmap <silent> ˜ :wincmd k<CR>
+nmap <silent> ß :wincmd l<CR>
 " plugins below
 " open cmdt for Symbols, Files or Buffers and open buffer List
 nnoremap <leader>s :CommandTTag<CR>
@@ -40,6 +54,11 @@ nnoremap <leader>T :NERDTreeToggle<CR>
 nnoremap <leader>F :set invfullscreen<CR>
 " unload buffer, load last buffer if one exists
 nnoremap <leader>q :BD<CR>
+" git stuff
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gh :Gbrowse<CR>
+nnoremap <leader>gg :Git
 
 " Commands
 " Write, then unload buffer

@@ -13,7 +13,8 @@ syntax on
 " hidden buffers on
 set hidden
 
-set wildignore+=*.pyc,*.egg-info,*.iml,*.o,*.obj,.git,*.class
+set wildignore+=*.pyc,*.egg-info,*.iml,*.o,*.obj,.git,*.class,.idea,.vfenv
+let NERDTreeIgnore=['\.pyc$', '\.egg-info$', '\.iml$', '\.o$', '\.obj$', '\.git$', '\.class$', '^\.idea$', '^.vfenv$']
 
 " ctags setup
 " requires ctags to be installed from Homebrew
@@ -37,9 +38,12 @@ set showbreak=>>>>
 
 set ruler
 set number
+set relativenumber
+set scrolloff=5
 
 if has("gui_running")
 	" gui settings
 	set guifont=Source_Code_Pro:h12
-	set lines=30 columns=100
+	set guifont=Source_Code_Pro_for_Powerline:h12
+	set lines=36 columns=120
 end

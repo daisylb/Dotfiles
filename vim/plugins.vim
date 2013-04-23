@@ -12,6 +12,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'ciaranm/detectindent'
+Bundle 'Lokaltog/powerline'
 " Navigation
 Bundle 'wincent/Command-T'
 Bundle 'majutsushi/tagbar'
@@ -46,8 +47,14 @@ autocmd BufReadPost * :DetectIndent
 let g:detectindent_preferred_expandtab = 0
 
 " NERDTREE
+let NERDTreeShowHidden=1
 " Open iff no file is given
 autocmd vimenter * if !argc() | NERDTree | endif
+" change Vim wd whenever NERDTree wd is changed
+let NERDTreeChDirMode=2
+" single click on dirs to open them
+let NERDTreeMouseMode=2
+let NERDTreeMinimalUI=1
 " if nerdtree is the last buffer, open an empty buffer
 " don't need this so long as we use :BD (mapped to <leader>q)
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | enew | NERDTree | endif
@@ -56,3 +63,6 @@ autocmd vimenter * if !argc() | NERDTree | endif
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+
+" POWERLINE (not installed using vundle)
+set rtp+=~/.vim/bundle/powerline/bindings/vim

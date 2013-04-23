@@ -105,6 +105,8 @@ app_dmg("Android File Transfer.app", "https://dl.google.com/dl/androidjumper/mtp
 brew_pkg("gnutls")
 py_pkg('openmeta')
 brew_pkg("wkhtmltopdf")
+brew_pkg("macvim", options=('--env-std', '--override-system-vim'))
+# need to call 'brew linkapps' after this
 
 # Software Development
 app_zip("Chocolat.app", "http://files.fileability.net/Chocolat_1.4.3.zip")
