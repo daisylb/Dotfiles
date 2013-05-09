@@ -4,9 +4,9 @@ functions -e open # turn off Fish's open command, it's not necessary on OS X
 function prompt_pwd --description 'Print the current working directory, shortened to fit the prompt'
 		switch "$PWD"
 				case "$HOME"
-					echo '~'
+					echo ''
 				case '*'
-					printf "%s" (echo $PWD|perl -pe "s|^$HOME|~|i" | sed -e 's-\(\.\{0,1\}[^/]\{5\}\)\([^/][^/]*\)/-\1…/-g')
+					printf "%s" (echo $PWD|perl -pe "s|^$HOME\/||i" | sed -e 's-\(\.\{0,1\}[^/]\{4\}\)\([^/][^/]*\)/-\1…/-g') ' ' 
 		end
 end
 
@@ -15,7 +15,7 @@ function fish_prompt --description 'Write out the prompt'
 	echo " "
 	
 	# Path
-	echo -s (set_color -o cyan) (prompt_pwd)
+	# echo -s (set_color -o cyan) (prompt_pwd)
 
 	# Git line
 	set __prompt_git_branch (git name-rev HEAD ^/dev/null | awk "{ print \$2 }")
@@ -35,11 +35,16 @@ function fish_prompt --description 'Write out the prompt'
 		echo -s (set_color yellow) "virtualenv: " (basename "$VIRTUAL_ENV")
 	end
 
-	# Prompt
-	switch $USER
-		case root
-			echo -n -s (set_color -b red) (set_color -o white) "root #" (set_color normal) ' '
-		case '*'
-			echo -n -s (set_color -o green) "\$" ' ' (set_color normal)
+	if test $USER = root
+		echo -n -s (set_color -b red) (set_color -o white) "root" (set_color normal) ' '
+		if test $PWD != $HOME
+			echo -n -s (set_color -o cyan) '@ '
+		end
 	end
+
+	# Path
+	echo -n -s (set_color -o cyan) (prompt_pwd)
+
+	# Prompt
+	echo -n -s (set_color -o green) "→" (set_color normal) ' '
 end
