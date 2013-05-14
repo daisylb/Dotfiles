@@ -13,8 +13,8 @@ syntax on
 " hidden buffers on
 set hidden
 
-set wildignore+=*.pyc,*.egg-info,*.iml,*.o,*.obj,.git,*.class,.idea,.vfenv
-let NERDTreeIgnore=['\.pyc$', '\.egg-info$', '\.iml$', '\.o$', '\.obj$', '\.git$', '\.class$', '^\.idea$', '^.vfenv$']
+set wildignore+=*.pyc,*.egg-info,*.iml,*.o,*.obj,.git,*.class,.idea,.vfenv,*.swp,MANIFEST.in,*.egg,*.sublime-*,.DS_Store,*.tm_properties
+let NERDTreeIgnore=['\.pyc$', '\.egg-info$', '\.iml$', '\.o$', '\.obj$', '\.git$', '\.class$', '^\.idea$', '^\.vfenv$', '\.swp$', '^MANIFEST\.in$', '\.egg$', '\.sublime-', '^\.DS_Store$', '\.tm_properties$']
 
 " ctags setup
 " requires ctags to be installed from Homebrew
@@ -39,6 +39,7 @@ set showbreak=>>>>
 set ruler
 set number
 set relativenumber
+autocmd BufAdd * set relativenumber
 set scrolloff=5
 
 if has("gui_running")
@@ -46,4 +47,7 @@ if has("gui_running")
 	set guifont=Source_Code_Pro:h12
 	set guifont=Source_Code_Pro_for_Powerline:h12
 	set lines=36 columns=120
+	" remove scrollbars
+	set guioptions-=L
+	set guioptions-=r
 end

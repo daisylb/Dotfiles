@@ -5,8 +5,8 @@ noremap T j
 noremap N k
 noremap s l
 noremap H _
-noremap T <C-d>
-noremap N <C-u>
+noremap T 10j
+noremap N 10k
 noremap S g_
 vnoremap S g_
 vnoremap l S
@@ -38,6 +38,7 @@ nmap <silent> <leader>H :wincmd h<CR>
 nmap <silent> <leader>T :wincmd j<CR>
 nmap <silent> <leader>N :wincmd k<CR>
 nmap <silent> <leader>S :wincmd l<CR>
+nmap <leader>v <C-w>v
 " We have to put the actual chars produced here due to a MacVim quirk
 nmap <silent> ˙ :wincmd h<CR>
 nmap <silent> † :wincmd j<CR>
@@ -45,20 +46,20 @@ nmap <silent> ˜ :wincmd k<CR>
 nmap <silent> ß :wincmd l<CR>
 " plugins below
 " open cmdt for Symbols, Files or Buffers and open buffer List
-nnoremap <leader>s :CommandTTag<CR>
-nnoremap <leader>f :CommandT<CR>
-nnoremap <leader>b :CommandTBuffer<CR>
-nnoremap <leader>l :TagbarToggle<CR>
-nnoremap <leader>t :NERDTreeFocus<CR>
-nnoremap <leader>T :NERDTreeToggle<CR>
-nnoremap <leader>F :set invfullscreen<CR>
+nnoremap <silent> <leader>s :CommandTTag<CR>
+nnoremap <silent> <leader>f :CommandT<CR>
+nnoremap <silent> <leader>b :CommandTBuffer<CR>
+nnoremap <silent> <leader>l :TagbarToggle<CR>
+nnoremap <silent> <leader>t :NERDTreeFocus<CR>
+nnoremap <silent> <leader>T :NERDTreeToggle<CR>
+nnoremap <silent> <leader>F :set invfullscreen<CR>
 " unload buffer, load last buffer if one exists
-nnoremap <leader>q :BD<CR>
+nnoremap <silent> <leader>q :BD<CR>
 " git stuff
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gh :Gbrowse<CR>
-nnoremap <leader>gg :Git
+nnoremap <leader>gg :Git<Space>
 
 " Commands
 " Write, then unload buffer

@@ -25,12 +25,15 @@ Bundle 'groenewege/vim-less'
 Bundle 'Glench/Vim-Jinja2-Syntax'
 Bundle 'django.vim'
 Bundle 'rollxx/vim-antlr'
+Bundle 'rodjek/vim-puppet'
+Bundle 'fountain.vim'
 " Completion
 Bundle 'docunext/closetag.vim'
 Bundle 'davidhalter/jedi-vim'
 " Source Control
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
 
 filetype plugin indent on     " required!
 " End vundle setup
