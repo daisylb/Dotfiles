@@ -39,10 +39,7 @@ filetype plugin indent on     " required!
 " End vundle setup
 
 " TOMMOROW-THEME
-colorscheme Tomorrow-Night-Bright
-if has("gui_running")
-	colorscheme Tomorrow-Night
-end
+colorscheme Tomorrow-Night
 
 " DETECTINDENT
 " Turn it on automatically, but prefer hard tabs
