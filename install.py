@@ -154,6 +154,9 @@ pkg_dmg("", "http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.4.dmg") # re
 pkg_dmg("/usr/local/bin/pandoc", "http://pandoc.googlecode.com/files/pandoc-1.9.4.2.dmg")
 node_pkg("kanso")
 
+# Games
+app_dmg("Dolphin.app", "http://dl.dolphin-emu.org/releases/dolphin-3.5.dmg")
+
 # Add symlinks
 for f in os.listdir(os.path.join(ROOT, "launch_agents")):
 	link_path = os.path.expanduser("~/Library/LaunchAgents/{}".format(f))
