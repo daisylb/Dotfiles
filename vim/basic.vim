@@ -37,9 +37,7 @@ set shiftwidth=4
 set showbreak=>>>>
 
 set ruler
-set number
-set relativenumber
-autocmd BufAdd * set relativenumber
+setglobal relativenumber
 set scrolloff=5
 
 if has("gui_running")
