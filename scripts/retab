@@ -1,0 +1,6 @@
+#!/usr/bin/env fish
+for f in (find . -name "*.py")
+	set tmp (mktemp -t retab)
+	expand -t4 $f > $tmp
+	mv $tmp $f
+end
