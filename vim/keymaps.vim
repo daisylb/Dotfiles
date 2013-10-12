@@ -1,19 +1,22 @@
 " Remap navigation keys for Dvorak
-noremap t gj
-noremap n gk
-noremap T j
-noremap N k
+noremap T gj
+noremap N gk
+noremap t j
+noremap n k
 noremap s l
 noremap H _
-noremap T 10j
-noremap N 10k
 noremap S g_
 vnoremap S g_
 vnoremap l S
 
 " make keys easier to reach
-inoremap hh <Esc>
+" <Esc> should now be mapped to Caps Lock
+" inoremap hh <Esc>
 noremap ; :
+
+" remap indentation keys in normal mode
+nnoremap < <<
+nnoremap > >>
 
 " Remap keys inside netrw
 " see http://unix.stackexchange.com/questions/31575/remapping-keys-in-vims-directory-view
@@ -44,14 +47,16 @@ nmap <silent> ˙ :wincmd h<CR>
 nmap <silent> † :wincmd j<CR>
 nmap <silent> ˜ :wincmd k<CR>
 nmap <silent> ß :wincmd l<CR>
+" wrap para
+nnoremap <leader>w gqip
 " plugins below
 " open cmdt for Symbols, Files or Buffers and open buffer List
 nnoremap <silent> <leader>s :CommandTTag<CR>
 nnoremap <silent> <leader>f :CommandT<CR>
 nnoremap <silent> <leader>b :CommandTBuffer<CR>
 nnoremap <silent> <leader>l :TagbarToggle<CR>
-nnoremap <silent> <leader>t :NERDTreeFocus<CR>
-nnoremap <silent> <leader>T :NERDTreeToggle<CR>
+nnoremap <silent> <leader>T :NERDTreeFocus<CR>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>F :set invfullscreen<CR>
 " unload buffer, load last buffer if one exists
 nnoremap <silent> <leader>q :BD<CR>
@@ -60,6 +65,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>gh :Gbrowse<CR>
 nnoremap <leader>gg :Git<Space>
+" lookup documentation
+nnoremap <leader>dd :Dash<Space>
+nmap <leader>ds <Plug>DashSearch
 
 " Commands
 " Write, then unload buffer
@@ -73,3 +81,6 @@ command Mkd !open -a Marked %
 command Cp w !pbcopy
 " Convert document from Markdown to HTML, then copy
 command Mcp w !pandoc -f markdown -t html | pbcopy
+" Pip install from requirements.txt/setup.py
+command Pr !pip install -r requirements.txt
+command Ps !pip install -e .

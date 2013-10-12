@@ -97,3 +97,20 @@ function dj-superuser-details
 	echo "from django.contrib.auth.models import User; u = User.objects.all()[0]; print 'Username:', u.username; u.set_password('password'); u.save()" | python manage.py shell
 	echo "Password: password"
 end
+
+function igf
+    pushd (git rev-parse --show-toplevel)
+    mvim "+:set fullscreen"
+end
+
+function ig
+    pushd (git rev-parse --show-toplevel)
+    mvim
+    popd
+end
+
+function i
+    pushd (git rev-parse --show-toplevel)
+    mvim
+    popd
+end

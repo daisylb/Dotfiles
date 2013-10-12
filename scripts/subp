@@ -6,12 +6,12 @@ set blank_project '{
 	"folders":
 	[
 		{
-			"path": "."
+			"path": "__PATH__"
 		}
 	]
 }'
 
-set projfile $HOME/.config/subp/projects
+set projfile $HOME/.config/subp/project-list
 
 # setup
 mkdir -p (dirname $projfile)
@@ -19,12 +19,23 @@ if not [ -f $projfile ]
 	touch $projfile
 end
 
+function abspath
+	pushd $argv[1]
+	pwd
+	popd
+end
+
+function get_project_file
+	set path (abspath $argv[1])
+	echo "$HOME/.config/subp/projects$path.sublime-project"
+end
+
 # if run with an argument, launch that project
 if [ (count $argv) -ge 1 ]
 	set projname $argv[1]
 	cat $projfile | while read dir
 		echo a
-		set proj $dir/(basename $dir).sublime-project
+		set proj $dir/(project_file (basename $dir))
 		echo b
 		if [ (basename $dir) = $projname ]
 			echo "Opening $proj"
@@ -37,8 +48,8 @@ end
 # find a sublime project in the wd or its parents
 while [ (pwd) != "/" ]; and [ (pwd) != $HOME ]
 	#if the project exists, open it
-	if [ -f (basename (pwd)).sublime-project ]
-		subl (basename (pwd)).sublime-project
+	if [ -f (get_project_file (pwd)) ]
+		subl (get_project_file (pwd))
 		pwd >> $projfile
 		exit 0
 	end
@@ -67,6 +78,9 @@ end
 read -p prompt n
 
 if [ $n != 0 ]
-	echo $blank_project > $levels[$n]/(basename $levels[$n]).sublime-project
-	subl $levels[$n]/(basename $levels[$n]).sublime-project
+	set path $levels[$n]
+	set projfile (get_project_file $path)
+	mkdir -p (dirname $projfile)
+	echo $blank_project | sed "s|__PATH__|$path|" > $projfile
+	subl $projfile
 end

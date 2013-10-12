@@ -1,0 +1,16 @@
+#!/usr/bin/env fish
+
+set machine $argv[1]
+set app $argv[2]
+set tag wsgi-remote-$machine-$app
+set localhead (git rev-parse head)
+
+if git show-ref --tags --quiet --verify -- "refs/tags/$tag"
+	git bundle create repo.bundle HEAD $tag
+else
+	git bundle create repo.bundle HEAD
+end
+
+cat repo.bundle | ssh $machine "bash -ec \"tee > ~/.bundle; cd ~/webapps/$app/app/; git fetch ~/.bundle HEAD; git reset --hard $localhead; cd ..; ./reload-app\""
+
+#rm repo.bundle

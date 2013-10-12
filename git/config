@@ -5,6 +5,7 @@
 	excludesfile = /Users/Adam/.gitignore_global
 	editor = vim
 	autocrlf = input
+	pager = vim -RM -
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -29,3 +30,6 @@
 	trustExitCode = true
 [merge]
 	tool = Kaleidoscope
+	conflictstyle = diff3
+[log]
+	date = iso

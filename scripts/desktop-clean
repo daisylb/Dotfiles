@@ -1,0 +1,5 @@
+#!/usr/bin/env fish
+
+for i in (find ~/Desktop -atime +3 -maxdepth 1 | grep -v '/files$')
+    mv $i ~/Desktop/files
+end

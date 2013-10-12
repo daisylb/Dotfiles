@@ -39,6 +39,9 @@ Host cis
 	Hostname cis-lab.ml.unisa.edu.au
 	User breal001
 
+Host *.sbtc.org.au
+    IdentityFile ~/.ssh/work_rsa
+
 Host *
 	IdentityFile ~/.ssh/id_rsa
 	IdentityFile ~/.ssh/work_rsa

@@ -32,6 +32,19 @@ def app_zip(app_bundle, zip_url, open_if_installed=False):
 def app_dmg(app_bundle, dmg_url, open_if_installed=False):
 	pass
 
+def app_mas(app_bundle, mas_url):
+	if not os.path.exists('/Applications/{}'.format(app_bundle)):
+		check_call(('open', mas_url))
+
+def app_sparkle(app_bundle, sparkle_url):
+	# sparkle_url -> the url to the Sparkle RSS feed,
+	# as specified in the app's Contents/Info.plist under SUFeedURL key
+	# can be found by:
+	# for x in /Applications/*/Contents/Info.plist
+	#   defaults read $x SUFeedURL ^/dev/null
+	# end
+	pass
+
 def pkg_dmg(file_to_check, dmg_url):
 	pass
 
@@ -50,7 +63,7 @@ def py_pkg(package_name):
 	Will not work if Pip is not present. Note that Python packages used
 	for development should be installed in virtualenvs.
 	"""
-	check_call(('sudo', 'pip', 'install', package_name))
+	check_call(('sudo', 'pip', 'install', '--user', package_name))
 
 def brew_basics():
 	if not os.path.exists('/usr/local/bin/brew'):
@@ -113,12 +126,14 @@ app_zip("Chocolat.app", "http://files.fileability.net/Chocolat_1.4.3.zip")
 app_dmg("IntelliJ IDEA 12.app", "http://download.jetbrains.com/idea/ideaIU-12.0.1.dmg")
 app_dmg("Kaliedoscope.app", "https://updates.blackpixel.com/latest?app=ks")
 app_dmg("SourceTree.app", "http://downloads.atlassian.com/software/sourcetree/SourceTree_1.5.7.1.dmg")
+app_mas('Dash.app', 'macappstores://itunes.apple.com/us/app/dash-docs-snippets/id458034879')
 brew_pkg("git")
 py_pkg('bpython')
 py_pkg('httpie')
 node_pkg("less")
 node_pkg("coffee-script")
 node_pkg("editr")
+py_pkg('git-remote-hg')
 
 # Databases
 brew_pkg("postgresql")
