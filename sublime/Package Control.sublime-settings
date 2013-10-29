@@ -1,0 +1,22 @@
+{
+	"installed_packages":
+	[
+		"Better CoffeeScript",
+		"Better JavaScript",
+		"fish-shell",
+		"GitGutter",
+		"Jade",
+		"Jedi - Python autocompletion",
+		"LESS",
+		"Markdown Extended",
+		"Puppet",
+		"Restructured Text (RST) Snippets",
+		"SublimeGit",
+		"sublimelint",
+		"SublimeREPL",
+		"Theme - Soda",
+		"Theme - Sodarized",
+		"Tomorrow Color Schemes",
+		"Vintageous"
+	]
+}

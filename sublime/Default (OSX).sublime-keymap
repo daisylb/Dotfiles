@@ -1,0 +1,71 @@
+[
+	// MOTIONS
+	{
+		"keys": ["t"],
+		"command": "set_motion",
+		"args": {
+			"motion": "vi_j",
+		},
+        "context": [
+            {"key": "setting.command_mode", "operand": true},
+            {"key": "setting.is_widget", "operand": false},
+        ]
+	},
+	{
+		"keys": ["n"],
+		"command": "set_motion",
+		"args": {
+			"motion": "vi_k",
+		},
+        "context": [
+            {"key": "setting.command_mode", "operand": true},
+            {"key": "setting.is_widget", "operand": false},
+        ]
+	},
+	{
+		"keys": ["s"],
+		"command": "set_motion",
+		"args": {
+			"motion": "vi_l",
+		},
+        "context": [
+            {"key": "setting.command_mode", "operand": true},
+            {"key": "setting.is_widget", "operand": false},
+        ]
+	},
+	// Overlays
+	{
+		"keys": [",", "f"],
+		"command": "show_overlay",
+		"args": {"overlay": "goto", "show_files": true},
+        "context": [
+            {"key": "setting.command_mode", "operand": true},
+            {"key": "setting.is_widget", "operand": false},
+        ]
+	},
+    {
+        "keys": [";"],
+        "command": "show_overlay",
+        "args": {"overlay": "command_palette"},
+        "context": [{"key": "setting.command_mode"}]
+    },
+    // Splits
+    {
+        "keys": [",", "v"],
+        "command": "new_pane",
+        "args": {
+            "move": "false"
+        }
+    },
+    {
+        "keys": [",", "S"],
+        "command": "focus_neighboring_group"
+    },
+    {
+        "keys": [",", "H"],
+        "command": "focus_neighboring_group",
+        "args": {
+            "forward": false
+        }
+    }
+]

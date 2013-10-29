@@ -1,0 +1,8 @@
+[
+    {"caption": "qq Close Group", "command": "close_pane"},
+    {"caption": "w Save File", "command": "save"},
+    {"caption": "qf Close File", "command": "close"},
+    {"caption": "vsplit New Group", "command": "new_pane", "args": {
+        "move": false
+    }}
+]

@@ -1,0 +1,69 @@
+{
+	"auto_complete_commit_on_tab": true,
+	"bold_folder_labels": true,
+	"caret_style": "wide",
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"dictionary": "Packages/Language - English/en_GB.dic",
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"*.sublime-project",
+		".venv",
+		"*.iml",
+		".tm_properties",
+		".tags",
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".git",
+		".hg",
+		".svn",
+		"CVS",
+		".idea",
+		".vagrant"
+	],
+	"font_face": "Source Code Pro",
+	"font_size": 13,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage",
+		"JavaScript"
+	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
+	"open_files_in_new_window": true,
+	"rulers":
+	[
+		80
+	],
+	"save_on_focus_lost": true,
+	"show_minimap": false,
+	"show_tab_close_buttons": false,
+	"theme": "Sodarized Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": true
+}
